@@ -1,8 +1,9 @@
-﻿using NUnit.Framework;
-using Xyun.Xylona.Common.Extensions;
-
-namespace Xyun.Xylona.Common.Tests.Extensions
+﻿namespace Xyun.Xylona.Common.Tests.Extensions
 {
+    using NUnit.Framework;
+
+    using Xyun.Xylona.Common.Extensions;
+
     /// <summary>
     ///     Tests for the String extensions.
     /// </summary>
@@ -14,6 +15,8 @@ namespace Xyun.Xylona.Common.Tests.Extensions
         [TestFixture]
         public class SplitCamelCaseTests : StringExtensionsTests
         {
+            #region Public Methods and Operators
+
             /// <summary>
             ///     Tests with valid strings.
             /// </summary>
@@ -24,6 +27,8 @@ namespace Xyun.Xylona.Common.Tests.Extensions
                 Assert.AreEqual("ALLCAPS", "ALLCAPS".SplitCamelCase());
                 Assert.AreEqual("IP Address", "IPAddress".SplitCamelCase());
             }
+
+            #endregion
         }
     }
 }

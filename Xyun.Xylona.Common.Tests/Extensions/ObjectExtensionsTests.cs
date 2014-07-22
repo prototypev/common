@@ -1,9 +1,11 @@
-﻿using System.Collections.Generic;
-using NUnit.Framework;
-using Xyun.Xylona.Common.Extensions;
-
-namespace Xyun.Xylona.Common.Tests.Extensions
+﻿namespace Xyun.Xylona.Common.Tests.Extensions
 {
+    using System.Collections.Generic;
+
+    using NUnit.Framework;
+
+    using Xyun.Xylona.Common.Extensions;
+
     /// <summary>
     ///     Tests for the Object extensions.
     /// </summary>
@@ -15,6 +17,8 @@ namespace Xyun.Xylona.Common.Tests.Extensions
         [TestFixture]
         public class MergeTests : ObjectExtensionsTests
         {
+            #region Public Methods and Operators
+
             /// <summary>
             ///     Tests with valid objects.
             /// </summary>
@@ -22,13 +26,13 @@ namespace Xyun.Xylona.Common.Tests.Extensions
             public void TestWithValidObjects()
             {
                 var obj1 = new
-                    {
-                        foo1 = "bar1"
-                    };
+                               {
+                                   foo1 = "bar1"
+                               };
                 var obj2 = new
-                    {
-                        foo2 = "bar2"
-                    };
+                               {
+                                   foo2 = "bar2"
+                               };
 
                 dynamic merged = obj1.Merge(obj2);
 
@@ -36,6 +40,8 @@ namespace Xyun.Xylona.Common.Tests.Extensions
                 Assert.AreEqual("bar1", merged.foo1);
                 Assert.AreEqual("bar2", merged.foo2);
             }
+
+            #endregion
         }
 
         /// <summary>
@@ -44,6 +50,8 @@ namespace Xyun.Xylona.Common.Tests.Extensions
         [TestFixture]
         public class PropertyValuesAreEqualTests : ObjectExtensionsTests
         {
+            #region Public Methods and Operators
+
             /// <summary>
             ///     Test with two equal objects.
             /// </summary>
@@ -51,25 +59,25 @@ namespace Xyun.Xylona.Common.Tests.Extensions
             public void TestTwoEqualObjects()
             {
                 object obj1 = new
-                    {
-                        p1 = "foo",
-                        p2 = "bar",
-                        p3 = new List<string>
-                            {
-                                "abc",
-                                "def"
-                            }
-                    };
+                                  {
+                                      p1 = "foo", 
+                                      p2 = "bar", 
+                                      p3 = new List<string>
+                                               {
+                                                   "abc", 
+                                                   "def"
+                                               }
+                                  };
                 object obj2 = new
-                    {
-                        p1 = "foo",
-                        p2 = "bar",
-                        p3 = new List<string>
-                            {
-                                "abc",
-                                "def"
-                            }
-                    };
+                                  {
+                                      p1 = "foo", 
+                                      p2 = "bar", 
+                                      p3 = new List<string>
+                                               {
+                                                   "abc", 
+                                                   "def"
+                                               }
+                                  };
 
                 Assert.IsTrue(obj1.PropertyValuesAreEqual(obj2));
             }
@@ -81,27 +89,29 @@ namespace Xyun.Xylona.Common.Tests.Extensions
             public void TestTwoUnequalObjects()
             {
                 object obj1 = new
-                    {
-                        p1 = "foo",
-                        p2 = "bar",
-                        p3 = new List<string>
-                            {
-                                "abc",
-                                "def"
-                            }
-                    };
+                                  {
+                                      p1 = "foo", 
+                                      p2 = "bar", 
+                                      p3 = new List<string>
+                                               {
+                                                   "abc", 
+                                                   "def"
+                                               }
+                                  };
                 object obj2 = new
-                    {
-                        p1 = "foo",
-                        p2 = "bar",
-                        p3 = new List<string>
-                            {
-                                "abc"
-                            }
-                    };
+                                  {
+                                      p1 = "foo", 
+                                      p2 = "bar", 
+                                      p3 = new List<string>
+                                               {
+                                                   "abc"
+                                               }
+                                  };
 
                 Assert.IsFalse(obj1.PropertyValuesAreEqual(obj2));
             }
+
+            #endregion
         }
     }
 }

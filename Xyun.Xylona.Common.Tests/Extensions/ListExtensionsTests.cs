@@ -1,10 +1,12 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using NUnit.Framework;
-using Xyun.Xylona.Common.Extensions;
-
-namespace Xyun.Xylona.Common.Tests.Extensions
+﻿namespace Xyun.Xylona.Common.Tests.Extensions
 {
+    using System.Collections;
+    using System.Collections.Generic;
+
+    using NUnit.Framework;
+
+    using Xyun.Xylona.Common.Extensions;
+
     /// <summary>
     ///     Tests for the List extensions.
     /// </summary>
@@ -16,6 +18,8 @@ namespace Xyun.Xylona.Common.Tests.Extensions
         [TestFixture]
         public class ListEqualsTests : ListExtensionsTests
         {
+            #region Public Methods and Operators
+
             /// <summary>
             ///     Test with two equal lists.
             /// </summary>
@@ -23,17 +27,17 @@ namespace Xyun.Xylona.Common.Tests.Extensions
             public void TestTwoEqualLists()
             {
                 IList list1 = new List<string>
-                    {
-                        "a",
-                        "b",
-                        "c"
-                    };
+                                  {
+                                      "a", 
+                                      "b", 
+                                      "c"
+                                  };
                 IList list2 = new List<string>
-                    {
-                        "a",
-                        "b",
-                        "c"
-                    };
+                                  {
+                                      "a", 
+                                      "b", 
+                                      "c"
+                                  };
 
                 Assert.IsTrue(list1.ListEquals(list2));
             }
@@ -45,19 +49,21 @@ namespace Xyun.Xylona.Common.Tests.Extensions
             public void TestTwoUnequalLists()
             {
                 IList list1 = new List<string>
-                    {
-                        "a",
-                        "b",
-                        "c"
-                    };
+                                  {
+                                      "a", 
+                                      "b", 
+                                      "c"
+                                  };
                 IList list2 = new List<string>
-                    {
-                        "b",
-                        "c"
-                    };
+                                  {
+                                      "b", 
+                                      "c"
+                                  };
 
                 Assert.IsFalse(list1.ListEquals(list2));
             }
+
+            #endregion
         }
 
         /// <summary>
@@ -66,6 +72,8 @@ namespace Xyun.Xylona.Common.Tests.Extensions
         [TestFixture]
         public class RemoveWhereTests : ListExtensionsTests
         {
+            #region Public Methods and Operators
+
             /// <summary>
             ///     Tests with an invalid predicate.
             /// </summary>
@@ -73,11 +81,11 @@ namespace Xyun.Xylona.Common.Tests.Extensions
             public void TestWithInvalidPredicate()
             {
                 IList<string> list = new List<string>
-                    {
-                        "a",
-                        "b",
-                        "c"
-                    };
+                                         {
+                                             "a", 
+                                             "b", 
+                                             "c"
+                                         };
                 list.RemoveWhere(s => s == "d");
 
                 Assert.AreEqual(3, list.Count);
@@ -93,17 +101,19 @@ namespace Xyun.Xylona.Common.Tests.Extensions
             public void TestWithValidPredicate()
             {
                 IList<string> list = new List<string>
-                    {
-                        "a",
-                        "b",
-                        "c"
-                    };
+                                         {
+                                             "a", 
+                                             "b", 
+                                             "c"
+                                         };
                 list.RemoveWhere(s => s == "b");
 
                 Assert.AreEqual(2, list.Count);
                 Assert.AreEqual("a", list[0]);
                 Assert.AreEqual("c", list[1]);
             }
+
+            #endregion
         }
     }
 }

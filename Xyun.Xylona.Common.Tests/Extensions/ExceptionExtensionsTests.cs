@@ -1,9 +1,11 @@
-﻿using System;
-using NUnit.Framework;
-using Xyun.Xylona.Common.Extensions;
-
-namespace Xyun.Xylona.Common.Tests.Extensions
+﻿namespace Xyun.Xylona.Common.Tests.Extensions
 {
+    using System;
+
+    using NUnit.Framework;
+
+    using Xyun.Xylona.Common.Extensions;
+
     /// <summary>
     ///     Tests for the Exception extensions.
     /// </summary>
@@ -15,6 +17,8 @@ namespace Xyun.Xylona.Common.Tests.Extensions
         [TestFixture]
         public class GetInnermostExceptionTests : ExceptionExtensionsTests
         {
+            #region Public Methods and Operators
+
             /// <summary>
             ///     Tests with nested exceptions.
             /// </summary>
@@ -30,6 +34,8 @@ namespace Xyun.Xylona.Common.Tests.Extensions
                 Exception ex3 = new Exception(string.Empty, ex2);
                 Assert.AreEqual(ex1, ex3.GetInnermostException());
             }
+
+            #endregion
         }
     }
 }

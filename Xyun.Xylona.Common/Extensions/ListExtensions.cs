@@ -1,23 +1,29 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Diagnostics.Contracts;
-using System.Linq;
-
-namespace Xyun.Xylona.Common.Extensions
+﻿namespace Xyun.Xylona.Common.Extensions
 {
+    using System;
+    using System.Collections;
+    using System.Collections.Generic;
+    using System.Diagnostics.Contracts;
+    using System.Linq;
+
     /// <summary>
     ///     Extensions to System.Collections.List.
     /// </summary>
     public static class ListExtensions
     {
+        #region Public Methods and Operators
+
         /// <summary>
-        ///     Determines whether the specified list is equal to the current list.
+        /// Determines whether the specified list is equal to the current list.
         /// </summary>
-        /// <param name="source">The source list.</param>
-        /// <param name="compareTo">The list to compare.</param>
+        /// <param name="source">
+        /// The source list.
+        /// </param>
+        /// <param name="compareTo">
+        /// The list to compare.
+        /// </param>
         /// <returns>
-        ///     <c>true</c> if the lists are equal; otherwise <c>false</c>.
+        /// <c>true</c> if the lists are equal; otherwise <c>false</c>.
         /// </returns>
         public static bool ListEquals(this IList source, IList compareTo)
         {
@@ -41,11 +47,17 @@ namespace Xyun.Xylona.Common.Extensions
         }
 
         /// <summary>
-        ///     Removes items from a list where the condition matches the provided predicate.
+        /// Removes items from a list where the condition matches the provided predicate.
         /// </summary>
-        /// <typeparam name="TItem">The type of the item.</typeparam>
-        /// <param name="list">The list.</param>
-        /// <param name="predicate">The predicate.</param>
+        /// <typeparam name="TItem">
+        /// The type of the item.
+        /// </typeparam>
+        /// <param name="list">
+        /// The list.
+        /// </param>
+        /// <param name="predicate">
+        /// The predicate.
+        /// </param>
         public static void RemoveWhere<TItem>(this IList<TItem> list, Func<TItem, bool> predicate)
         {
             Contract.Requires(list != null);
@@ -58,5 +70,7 @@ namespace Xyun.Xylona.Common.Extensions
                 list.Remove(item);
             }
         }
+
+        #endregion
     }
 }

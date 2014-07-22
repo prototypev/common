@@ -1,21 +1,23 @@
-﻿using System;
-using System.Diagnostics.Contracts;
-
-namespace Xyun.Xylona.Common.Extensions
+﻿namespace Xyun.Xylona.Common.Extensions
 {
+    using System;
+    using System.Diagnostics.Contracts;
+
     /// <summary>
     ///     Extensions to System.Exception.
     /// </summary>
     public static class ExceptionExtensions
     {
+        #region Public Methods and Operators
+
         /// <summary>
-        ///     Gets the inner most exception.
+        /// Gets the inner most exception.
         /// </summary>
         /// <param name="ex">
-        ///     The original exception.
+        /// The original exception.
         /// </param>
         /// <returns>
-        ///     The inner most exception.
+        /// The inner most exception.
         /// </returns>
         public static Exception GetInnermostException(this Exception ex)
         {
@@ -25,5 +27,7 @@ namespace Xyun.Xylona.Common.Extensions
                        ? ex
                        : ex.InnerException.GetInnermostException();
         }
+
+        #endregion
     }
 }

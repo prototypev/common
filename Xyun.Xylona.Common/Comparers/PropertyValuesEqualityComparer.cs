@@ -1,23 +1,30 @@
-﻿using System.Collections.Generic;
-using Xyun.Xylona.Common.Extensions;
-
-namespace Xyun.Xylona.Common.Comparers
+﻿namespace Xyun.Xylona.Common.Comparers
 {
+    using System.Collections.Generic;
+
+    using Xyun.Xylona.Common.Extensions;
+
     /// <summary>
-    ///     A property value equality comparer.
+    /// A property value equality comparer.
     /// </summary>
-    /// <typeparam name="T">The object type.</typeparam>
+    /// <typeparam name="T">
+    /// The object type.
+    /// </typeparam>
     public class PropertyValuesEqualityComparer<T> : IEqualityComparer<T>
     {
         #region Public Methods and Operators
 
         /// <summary>
-        ///     Determines whether the specified objects are equal.
+        /// Determines whether the specified objects are equal.
         /// </summary>
-        /// <param name="x">The first object to compare.</param>
-        /// <param name="y">The second object to compare.</param>
+        /// <param name="x">
+        /// The first object to compare.
+        /// </param>
+        /// <param name="y">
+        /// The second object to compare.
+        /// </param>
         /// <returns>
-        ///     true if the specified objects are equal; otherwise, false.
+        /// true if the specified objects are equal; otherwise, false.
         /// </returns>
         public bool Equals(T x, T y)
         {
@@ -25,11 +32,13 @@ namespace Xyun.Xylona.Common.Comparers
         }
 
         /// <summary>
-        ///     Returns a hash code for this instance.
+        /// Returns a hash code for this instance.
         /// </summary>
-        /// <param name="obj">The object.</param>
+        /// <param name="obj">
+        /// The object.
+        /// </param>
         /// <returns>
-        ///     A hash code for this instance, suitable for use in hashing algorithms and data structures like a hash table.
+        /// A hash code for this instance, suitable for use in hashing algorithms and data structures like a hash table.
         /// </returns>
         public int GetHashCode(T obj)
         {
